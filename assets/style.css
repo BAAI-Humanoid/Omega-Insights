@@ -83,6 +83,13 @@ html:lang(en) .hero-title { max-width: 1080px; }
 .article-actions { border-top: 1px solid var(--line); margin-top: 45px; padding-top: 25px; font-size: 13px; }
 .article-actions h2 { font-size: 18px; color: var(--ink); }
 .article-actions > div { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.article-citation { min-width: 0; border-top: 1px solid var(--line); margin-top: 45px; padding-top: 25px; font-size: 14px; line-height: 1.8; }
+.article-citation h2 { color: var(--ink); margin: 0 0 14px; font-size: 23px; }
+.citation-text { overflow-wrap: anywhere; color: var(--muted); }
+.article-citation pre { margin: 22px 0; padding: 22px; background: var(--green-soft); border: 1px solid var(--line); white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; line-height: 1.8; }
+.article-citation code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.citation-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.copy-status { color: var(--muted); font-size: 12px; }
 .button { display: inline-flex; align-items: center; gap: 8px; color: var(--green); border: 1px solid #adbdb1; background: transparent; padding: 7px 12px; text-decoration: none; font-size: 12px; line-height: 1.5; cursor: pointer; border-radius: 2px; }
 .button:hover { background: var(--green-soft); color: var(--green); border-color: var(--green); }
 .text-link { font-size: 12px; color: var(--muted); }
@@ -199,7 +206,7 @@ html:lang(en) .hero-title { max-width: 1080px; }
 @media print {
   :root { --paper: #fff; --body: #222; --ink: #111; }
   body { font-size: 10pt; }
-  .site-header, .site-footer, .toc, .article-actions, .skip-link { display: none; }
+  .site-header, .site-footer, .toc, .article-actions, .skip-link, .citation-controls { display: none; }
   .container { width: 100%; }
   .article-header { padding-top: 0; }
   .article-title { font-size: 26pt; }

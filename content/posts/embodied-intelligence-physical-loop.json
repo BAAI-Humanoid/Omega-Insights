@@ -6,12 +6,18 @@
   "date": "2026-11-16",
   "updated": "2026-11-16",
   "authors": [
-    "BAAI-Humanoid"
+    {
+      "id": "zhenguo-sun",
+      "name": "孙振国",
+      "type": "Person",
+      "bibtex": "{孙振国}"
+    }
   ],
   "tags": [
     "具身智能",
     "System 0/1/2",
     "数据闭环",
     "技术路线"
-  ]
+  ],
+  "citation_key": "sun2026embodiedsystems_zh"
 }

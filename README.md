@@ -1,32 +1,34 @@
 # Omega Insights
 
-BAAI-Humanoid 关于具身智能、全身移动操作与物理世界学习的技术博客。
+BAAI-Humanoid's technical blog on embodied intelligence, whole-body mobile manipulation, and learning in the physical world.
 
-- 仓库：[BAAI-Humanoid/Omega-Insights](https://github.com/BAAI-Humanoid/Omega-Insights)
-- 网站：<https://baai-humanoid.github.io/Omega-Insights/>（首次部署成功后可用）
-- English: <https://baai-humanoid.github.io/Omega-Insights/en/>
-- 首篇文章：**通用模型越强，具身团队越该做什么？**
+- Repository: [BAAI-Humanoid/Omega-Insights](https://github.com/BAAI-Humanoid/Omega-Insights)
+- Chinese edition: <https://baai-humanoid.github.io/Omega-Insights/>
+- English edition: <https://baai-humanoid.github.io/Omega-Insights/en/>
+- First essay: [As General-Purpose Models Get Stronger, What Should Embodied AI Teams Build?](https://baai-humanoid.github.io/Omega-Insights/en/insights/embodied-intelligence-physical-loop/), by **Zhenguo Sun**.
 
-## 首次启用 GitHub Pages
+## GitHub Pages setup
 
-1. 将本仓库的文件推送到 `main`，包括隐藏目录 `.github/`。
-2. 在仓库 [Settings → Pages](https://github.com/BAAI-Humanoid/Omega-Insights/settings/pages) 的 **Build and deployment → Source** 中选择 **GitHub Actions**。
-3. 在 [Actions → Build and deploy Insights](https://github.com/BAAI-Humanoid/Omega-Insights/actions/workflows/pages.yml) 查看构建与部署。若首次 push 发生在启用 Pages 之前，设置完成后选择 **Run workflow** 或重新运行失败的部署。
-4. 部署成功后访问 <https://baai-humanoid.github.io/Omega-Insights/>。
+The site is live. The following steps document the initial configuration for maintainers:
 
-这是项目网站，无需将仓库命名为组织根网站。`site.json` 的 `url` 为 `https://baai-humanoid.github.io`，`base_path` 为 `/Omega-Insights`；页面、资源、RSS、引用下载与站点地图均从配置生成。
+1. Push the repository files to `main`, including the hidden `.github/` directory.
+2. In [Settings → Pages](https://github.com/BAAI-Humanoid/Omega-Insights/settings/pages), set **Build and deployment → Source** to **GitHub Actions**.
+3. Check the build and deployment under [Actions → Build and deploy Insights](https://github.com/BAAI-Humanoid/Omega-Insights/actions/workflows/pages.yml). If the first push occurred before Pages was enabled, select **Run workflow** or rerun the failed deployment after completing setup.
+4. Once deployment succeeds, visit <https://baai-humanoid.github.io/Omega-Insights/>.
 
-可以在组织的 `.github/profile/README.md` 加上入口：
+This is a project site; the repository does not need the organization's root-site name. In `site.json`, `url` is `https://baai-humanoid.github.io` and `base_path` is `/Omega-Insights`. Pages, assets, RSS feeds, reference downloads, and the sitemap use this configuration.
+
+To add an entry on the organization's GitHub profile, include the following in `.github/profile/README.md`:
 
 ```md
 ## Omega Insights
 
-[阅读我们的技术观察与思考](https://baai-humanoid.github.io/Omega-Insights/)
+[Read our research perspectives and technical discussions](https://baai-humanoid.github.io/Omega-Insights/en/)
 ```
 
-## 本地预览
+## Local preview
 
-需要 Python 3.9+；CI 使用 Python 3.12。浏览器端没有框架或 CDN 依赖。
+Requires Python 3.9 or later; CI uses Python 3.12. The browser frontend has no framework or CDN dependencies.
 
 ```sh
 python3 -m venv .venv
@@ -36,17 +38,19 @@ python3 -m venv .venv
 .venv/bin/python scripts/preview.py
 ```
 
-打开 <http://127.0.0.1:8000/Omega-Insights/>。预览脚本会按项目路径提供页面；不能直接双击 HTML，或仅在根目录用 `http.server` 预览。Windows 将 `.venv/bin/python` 换成 `.venv\Scripts\python.exe`。修改文章后重新执行 build。
+Open <http://127.0.0.1:8000/Omega-Insights/>. The preview script serves the configured project path. Opening HTML files directly or serving `dist/` at the root with a plain `http.server` will not reproduce that path correctly. On Windows, replace `.venv/bin/python` with `.venv\Scripts\python.exe`. Rebuild after editing an article.
 
-## 新增文章
+## Adding an article
 
-在 `content/posts/` 增加同名 `.md` 与 `.json` 文件，在 `content/references/` 增加对应引用清单。详细格式见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+Add matching `.md` and `.json` files under `content/posts/`, with a reference list under `content/references/`. See [CONTRIBUTING.md](CONTRIBUTING.md) for the detailed format.
 
-每篇文章同时提供中文和完整英文版本：中文保存在 `content/posts/`，英文保存在 `content/posts/en/`，两者使用相同文件名和 `slug`。共用一份引用 JSON，脚注 ID 与来源保持一致。页头的 **中文 / EN** 按钮会切换到当前页面的另一语言版本，首页、关于页、文章、RSS 与 Markdown 下载均按语言生成；不依赖浏览器 JavaScript 即可切换。
+Each article has a complete Chinese and English edition. Chinese files live in `content/posts/`; English files live in `content/posts/en/`. Both editions use the same filename and `slug`, and share a reference JSON file with matching footnote IDs and source URLs. Author display names may be localized, while stable author IDs identify the same person across editions.
+
+The language selector switches to the corresponding version of the current page. Home pages, About pages, articles, RSS feeds, and Markdown downloads are generated for each language. Language switching works without browser JavaScript.
 
 ```sh
 git switch -c post/your-topic
-# 编辑文章、元数据与引用
+# Edit the article, metadata, and references.
 .venv/bin/python scripts/build.py
 .venv/bin/python scripts/check_site.py
 git add content assets
@@ -54,32 +58,34 @@ git commit -m "Add insight on your topic"
 git push -u origin post/your-topic
 ```
 
-随后在 GitHub 创建 PR。PR 自动检查；合并到 `main` 后自动发布。也可以在 GitHub 网页编辑 Markdown 并提交 PR。
+Then open a pull request on GitHub. Pull requests run automated checks; merging into `main` publishes the site automatically. You can also edit Markdown in GitHub's web interface and submit a pull request there.
 
 ```text
-content/posts/           文章 Markdown + 元数据 JSON
-content/posts/en/        对应的完整英文文章和元数据
-content/references/      每篇文章的结构化引用
-content/ui/              中英文界面文案
-assets/                  样式、渐进增强脚本、原创示意图
-scripts/build.py         生成文章、目录、首页、下载、RSS、站点地图
-scripts/check_site.py    检查本地链接、锚点、脚注和引用完整性
-scripts/preview.py       按项目路径提供本地预览
-.github/workflows/       PR 检查 + main 自动发布
-dist/                    生成产物，不提交 Git
+content/posts/           Chinese articles and metadata
+content/posts/en/        Complete English articles and metadata
+content/references/      Shared structured references for each article
+content/ui/              Chinese and English interface text
+assets/                  Styles, progressive enhancement, and original diagrams
+scripts/build.py         Builds pages, contents lists, downloads, RSS, and sitemap
+scripts/check_site.py    Checks language links, anchors, footnotes, and references
+scripts/preview.py       Serves a local preview under the project path
+.github/workflows/       Pull request checks and automatic deployment from main
+dist/                    Generated output; not committed to Git
 ```
 
-## 引用与内容范围
+## Citations and editorial scope
 
-首篇基于 2026 年 9 月 24 日分享材料，2026 年 11 月 16 日整理并核验引用。它讨论指定版本的技术路线，并非当前最新模型清单。外部实验数字保留任务和评测边界；团队建议不代表已经完成的内部实验。
+The first essay, by Zhenguo Sun, is based on an **internal team discussion on embodied AI held on September 24, 2026**. It was published on November 16, 2026, when its reference links were also checked. It examines the selected model versions and is not a list of the latest releases. Reported results retain their task and evaluation context; proposed research priorities do not imply that the team has already completed those experiments.
 
-每篇文章自动导出 Markdown、BibTeX 与 JSON 引用。BibTeX 对应原始来源；未公开的作者、日期、DOI 不会补造。官网博客不标作同行评审论文。
+Each article ends with a **Cite this article** section and a separate BibTeX download for citing the blog post itself. This is distinct from the downloadable **reference bibliography**, which contains the external sources cited by the article. The blog's citation identifies its author, title, publication date, and stable URL.
 
-中文 Markdown 下载保留原文件名，英文使用 `.en.md`；BibTeX 与引用 JSON 由两个语言版本共用。英文图示使用 `-en.svg`，保持与中文图示相同的技术含义。
+Articles also provide Markdown, BibTeX reference bibliographies, and structured reference JSON. Undisclosed author names, dates, and DOIs are not invented, and company blog posts are not described as peer-reviewed papers.
 
-许可见仓库已有的 [Apache-2.0 LICENSE](LICENSE)。引用的第三方资料归其权利人所有；图示为本站原创技术示意。
+Chinese Markdown downloads retain the original filename; English downloads use `.en.md`. Both editions share the external reference bibliography and reference JSON. English diagrams use `-en.svg` and preserve the technical meaning of their Chinese counterparts.
 
-## 官方部署文档
+See the repository's existing [Apache-2.0 LICENSE](LICENSE). Third-party source material remains the property of its respective rights holders; the technical diagrams are original illustrations for this site.
 
-- [GitHub Pages 与项目网站](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)
-- [使用 GitHub Actions 发布 Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
+## Official deployment documentation
+
+- [GitHub Pages and project sites](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)
+- [Publishing Pages with GitHub Actions](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)

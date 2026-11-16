@@ -6,12 +6,18 @@
   "date": "2026-11-16",
   "updated": "2026-11-16",
   "authors": [
-    "BAAI-Humanoid"
+    {
+      "id": "zhenguo-sun",
+      "name": "Zhenguo Sun",
+      "type": "Person",
+      "bibtex": "Sun, Zhenguo"
+    }
   ],
   "tags": [
     "Embodied AI",
     "System 0/1/2",
     "Data feedback loops",
     "Technical perspectives"
-  ]
+  ],
+  "citation_key": "sun2026embodiedsystems"
 }

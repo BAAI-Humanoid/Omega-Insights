@@ -21,10 +21,17 @@ class Page(HTMLParser):
         self.h1 = 0
         self.locale, self.canonical = None, None
         self.alternates, self.language_links = {}, []
+        self.structured, self.citation = [], ""
+        self._capture = None
+        self._buffer = ""
         self.feed(source)
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if tag == "script" and a.get("type") == "application/ld+json":
+            self._capture, self._buffer = "schema", ""
+        if tag == "code" and a.get("id") == "article-bibtex":
+            self._capture, self._buffer = "citation", ""
         if tag == "html":
             self.locale = a.get("lang")
         if tag == "link" and a.get("rel") == "canonical":
@@ -44,6 +51,18 @@ class Page(HTMLParser):
                 self.links.append(a[key])
         if tag == "img":
             self.images.append(a)
+
+    def handle_data(self, data):
+        if self._capture:
+            self._buffer += data
+
+    def handle_endtag(self, tag):
+        if tag == "script" and self._capture == "schema":
+            self.structured.append(json.loads(self._buffer))
+            self._capture = None
+        elif tag == "code" and self._capture == "citation":
+            self.citation = self._buffer
+            self._capture = None
 
 
 def main():
@@ -116,6 +135,21 @@ def main():
         for missing in set(uses) - set(definitions):
             errors.append(f"{file}: undefined footnote {missing}")
         meta = json.loads(file.with_suffix(".json").read_text(encoding="utf-8"))
+        lang = "en" if file.parent.name == "en" else "zh-CN"
+        prefix = "en/" if lang == "en" else ""
+        article_page = pages[DIST / prefix / "insights" / meta["slug"] / "index.html"]
+        expected_authors = [{"@type": author["type"], "name": author["name"]} for author in meta["authors"]]
+        if len(article_page.structured) != 1 or article_page.structured[0].get("author") != expected_authors:
+            errors.append(f"{file}: incorrect structured author metadata")
+        citation_file = DIST / "downloads" / (meta["slug"] + (".cite.en.bib" if lang == "en" else ".cite.bib"))
+        citation = citation_file.read_text(encoding="utf-8")
+        if citation != article_page.citation:
+            errors.append(f"{file}: displayed and downloaded article citations differ")
+        expected_bib_author = " and ".join(author["bibtex"] for author in meta["authors"])
+        if f"author = {{{expected_bib_author}}}" not in citation or f"date = {{{meta['date']}}}" not in citation:
+            errors.append(f"{file}: incorrect article citation author or publication date")
+        if not citation.startswith("@misc{" + meta["citation_key"] + ",") or article_page.canonical not in citation:
+            errors.append(f"{file}: article citation must use its key and canonical URL")
         refs = json.loads((ROOT / "content" / "references" / (meta["slug"] + ".json")).read_text(encoding="utf-8"))
         ids = [ref["id"] for ref in refs]
         if len(ids) != len(set(ids)):

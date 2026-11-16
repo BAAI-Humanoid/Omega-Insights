@@ -13,12 +13,15 @@
      "summary": "首页显示的摘要",
      "date": "2026-11-16",
      "updated": "2026-11-16",
-     "authors": ["BAAI-Humanoid"],
+     "authors": [{"id": "zhenguo-sun", "name": "孙振国", "type": "Person", "bibtex": "{孙振国}"}],
+     "citation_key": "sun2026yourtopic_zh",
      "tags": ["技术观察", "具身智能"]
    }
    ```
 
-   同时建立 `content/posts/en/your-slug.json`，翻译 `title`、`subtitle`、`summary` 和 `tags`，保持 `slug`、`date`、`authors` 与中文一致。`updated` 可以记录各语言的实际修订日期。构建会检查中英文文件是否配对，避免语言按钮落到不存在的文章。
+   同时建立 `content/posts/en/your-slug.json`，翻译 `title`、`subtitle`、`summary` 和 `tags`，保持 `slug`、`date` 与中文一致。作者的 `id` 和 `type` 保持一致，显示名可以本地化：英文使用 `name: "Zhenguo Sun"`、`bibtex: "Sun, Zhenguo"`。`type` 支持 `Person` 或 `Organization`。`updated` 可以记录各语言的实际修订日期。构建会检查中英文文件是否配对，避免语言按钮落到不存在的文章。
+
+   为每个语言版本设置唯一且稳定的 `citation_key`，例如英文 `sun2026yourtopic`、中文 `sun2026yourtopic_zh`。构建器据此自动生成文末“引用本文 / Cite this article”、复制按钮和独立 `.cite.bib` / `.cite.en.bib` 下载，不要把文章自身加入其参考文献清单。引用使用文章的公开发布日期 `date` 和对应语言的稳定 URL；不要把内部讨论日期当作发布日期，也不要填写未获得的 DOI 或 arXiv 编号。
 
 3. 建立 `content/references/your-slug.json`，没有外部资料时填 `[]`。每项格式：
 

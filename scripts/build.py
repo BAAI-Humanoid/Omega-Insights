@@ -114,6 +114,37 @@ def bibliography(items):
     return "\n\n".join(result) + "\n"
 
 
+def article_bibtex(meta, lang):
+    """Cite this post as a web publication, separately from its source bibliography."""
+    escape_map = {"\\": r"\textbackslash{}", "&": r"\&", "%": r"\%", "_": r"\_", "#": r"\#", "$": r"\$", "{": r"\{", "}": r"\}", "~": r"\textasciitilde{}", "^": r"\textasciicircum{}"}
+    clean = lambda text: "".join(escape_map.get(char, char) for char in text)
+    url = absolute(route(lang, f"insights/{meta['slug']}/"))
+    # Author metadata supplies BibTeX name syntax (family, given) or protected names.
+    authors = " and ".join(author["bibtex"] for author in meta["authors"])
+    fields = {
+        "author": authors,
+        "title": "{" + clean(meta["title"]) + "}",
+        "year": meta["date"][:4],
+        "date": meta["date"],
+        "howpublished": clean(CONFIG["name"]),
+        "url": url,
+        "note": UI[lang]["citation"]["language_note"],
+    }
+    return "@misc{" + meta["citation_key"] + ",\n" + ",\n".join(f"  {key} = {{{value}}}" for key, value in fields.items()) + "\n}\n"
+
+
+def citation_section(meta, lang, bibtex, download):
+    ui = UI[lang]["citation"]
+    names = UI[lang]["article"]["authors_separator"].join(author["name"] for author in meta["authors"])
+    url = absolute(route(lang, f"insights/{meta['slug']}/"))
+    return f'''<section id="cite" class="article-citation" aria-labelledby="citation-heading">
+<h2 id="citation-heading">{ui['title']}</h2><p>{ui['intro']}</p>
+<p class="citation-text">{e(names)} ({meta['date']}). {e(meta['title'])} <em>{e(CONFIG['name'])}</em>. <a href="{url}">{url}</a></p>
+<pre><code id="article-bibtex" class="language-bibtex">{e(bibtex)}</code></pre>
+<div class="citation-controls"><button class="button" type="button" data-copy-citation data-copied="{e(ui['copied'])}" data-success="{e(ui['success'])}" data-failure="{e(ui['failure'])}" hidden>{ui['copy']}</button><a class="button" download href="{path(download)}">{ui['download']}</a><span class="copy-status" role="status" aria-live="polite"></span></div>
+</section>'''
+
+
 def load_posts():
     pairs = []
     source_dir = ROOT / "content" / "posts"
@@ -130,11 +161,20 @@ def load_posts():
             slug = meta["slug"]
             if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug) or slug != file.stem:
                 raise ValueError(f"Slug must match the filename: {localized_file}")
+            if not re.fullmatch(r"[A-Za-z0-9_-]+", meta.get("citation_key", "")):
+                raise ValueError(f"A stable citation_key is required: {localized_file}")
+            if not meta.get("authors") or any(not all(author.get(key) for key in ("id", "name", "type", "bibtex")) or author["type"] not in ("Person", "Organization") for author in meta["authors"]):
+                raise ValueError(f"Authors need id, localized name, type and BibTeX name: {localized_file}")
             source = localized_file.with_suffix(".md").read_text(encoding="utf-8")
             pair[lang] = (meta, source)
-        for field in ("slug", "date", "authors"):
+        for field in ("slug", "date"):
             if pair["zh-CN"][0].get(field) != pair["en"][0].get(field):
                 raise ValueError(f"Translation metadata differs in {field}: {file.name}")
+        author_ids = {lang: [(author["id"], author["type"]) for author in pair[lang][0]["authors"]] for lang in LANGUAGES}
+        if author_ids["zh-CN"] != author_ids["en"]:
+            raise ValueError(f"Translations must refer to the same authors: {file.name}")
+        if pair["zh-CN"][0]["citation_key"] == pair["en"][0]["citation_key"]:
+            raise ValueError(f"Use distinct citation keys for the two language editions: {file.name}")
         refs = json.loads((ROOT / "content" / "references" / file.name).read_text(encoding="utf-8"))
         pairs.append((pair, refs))
     return pairs
@@ -152,14 +192,18 @@ def build_article(meta, source, refs, lang):
     relative = f"insights/{meta['slug']}/"
     reference_base = f"downloads/{meta['slug']}"
     markdown_file = reference_base + (".en.md" if lang == "en" else ".md")
-    write(markdown_file, "# " + meta["title"] + "\n\n" + meta["subtitle"] + "\n\n" + source)
-    authors = ui["authors_separator"].join(meta.get("authors", ["BAAI-Humanoid"]))
+    authors = ui["authors_separator"].join(author["name"] for author in meta["authors"])
+    bibtex = article_bibtex(meta, lang)
+    citation_file = reference_base + (".cite.en.bib" if lang == "en" else ".cite.bib")
+    write(citation_file, bibtex)
+    write(markdown_file, "# " + meta["title"] + "\n\n" + meta["subtitle"] + "\n\n" + authors + " · " + meta["date"] + "\n\n" + source + "\n\n## " + UI[lang]["citation"]["title"] + "\n\n```bibtex\n" + bibtex + "```\n")
+    cite = citation_section(meta, lang, bibtex, citation_file)
     toc = renderer.toc.replace('class="toc"', 'class="toc-list"')
     article = f'''<main id="main">
 <header class="article-header container"><a class="eyebrow text-link" href="{path(route(lang, '#articles'))}">{ui['eyebrow']}</a><h1 class="article-title">{e(meta['title'])}</h1><p class="article-deck">{e(meta['subtitle'])}</p><div class="article-meta"><span>{e(authors)}</span><time datetime="{meta['date']}">{meta['date']}</time><span>{ui['minutes'].format(minutes=minutes)}</span><span>{ui['references'].format(count=len(refs))}</span></div>{tags(meta['tags'])}</header>
-<div class="article-layout container"><aside class="toc"><details class="toc-inner" open><summary>{ui['toc']}</summary>{toc}<a class="text-link toc-top" href="#main">{ui['top']}</a></details></aside><div><article class="article-body prose">{content}</article><section class="article-actions" aria-label="{ui['files']}"><h2>{ui['continue']}</h2><p>{ui['continue_text']}</p><div><a class="button" download href="{path(markdown_file)}">{ui['markdown']}</a><a class="button" download href="{path(reference_base + '.bib')}">{ui['bibtex']}</a><a class="button" download href="{path(reference_base + '-references.json')}">{ui['json']}</a><button class="button" data-print hidden type="button">{ui['print']}</button><a class="text-link" href="{CONFIG['repository_url']}/issues/new">{ui['correction']}</a></div></section></div></div>
+<div class="article-layout container"><aside class="toc"><details class="toc-inner" open><summary>{ui['toc']}</summary>{toc}<a class="text-link" href="#cite">{UI[lang]['citation']['title']}</a><a class="text-link toc-top" href="#main">{ui['top']}</a></details></aside><div><article class="article-body prose">{content}</article>{cite}<section class="article-actions" aria-label="{ui['files']}"><h2>{ui['continue']}</h2><p>{ui['continue_text']}</p><div><a class="button" download href="{path(markdown_file)}">{ui['markdown']}</a><a class="button" download href="{path(reference_base + '.bib')}">{ui['bibtex']}</a><a class="button" download href="{path(reference_base + '-references.json')}">{ui['json']}</a><button class="button" data-print hidden type="button">{ui['print']}</button><a class="text-link" href="{CONFIG['repository_url']}/issues/new">{ui['correction']}</a></div></section></div></div>
 </main>'''
-    schema = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": meta["title"], "description": meta["summary"], "inLanguage": lang, "datePublished": meta["date"], "dateModified": meta.get("updated", meta["date"]), "author": {"@type": "Organization", "name": authors, "url": CONFIG["organization_url"]}, "mainEntityOfPage": absolute(route(lang, relative)), "citation": [ref["url"] for ref in refs]}
+    schema = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": meta["title"], "description": meta["summary"], "inLanguage": lang, "datePublished": meta["date"], "dateModified": meta.get("updated", meta["date"]), "author": [{"@type": author["type"], "name": author["name"]} for author in meta["authors"]], "publisher": {"@type": "Organization", "name": "BAAI-Humanoid", "url": CONFIG["organization_url"]}, "mainEntityOfPage": absolute(route(lang, relative)), "citation": [ref["url"] for ref in refs]}
     write(route(lang, relative) + "index.html", shell(meta["title"] + " · " + CONFIG["name"], meta["summary"], article, lang, relative, "article-page", schema))
 
 
@@ -189,6 +233,8 @@ def build_about(lang):
 
 
 def build_feed(posts, lang):
+    creator_ns = 'http://purl.org/dc/elements/1.1/'
+    ET.register_namespace('dc', creator_ns)
     rss = ET.Element('rss', version='2.0')
     channel = ET.SubElement(rss, 'channel')
     for key, value in {'title': CONFIG['name'] + ' · ' + UI[lang]['language_name'], 'link': absolute(route(lang)), 'description': UI[lang]['description'], 'language': lang}.items():
@@ -199,6 +245,8 @@ def build_feed(posts, lang):
         values = {'title': post['title'], 'link': url, 'guid': url, 'description': post['summary'], 'pubDate': dt.datetime.strptime(post['date'], '%Y-%m-%d').strftime('%a, %d %b %Y 00:00:00 +0800')}
         for key, value in values.items():
             ET.SubElement(item, key).text = value
+        for author in post['authors']:
+            ET.SubElement(item, '{' + creator_ns + '}creator').text = author['name']
     write(route(lang, 'feed.xml'), ET.tostring(rss, encoding='unicode', xml_declaration=True))
 
 

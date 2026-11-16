@@ -61,7 +61,7 @@
     "continue": "继续研究",
     "continue_text": "下载正文与引用，复查原始实验，也欢迎通过 GitHub 提交补充与更正。",
     "markdown": "下载 Markdown",
-    "bibtex": "下载 BibTeX",
+    "bibtex": "参考文献 BibTeX",
     "json": "引用 JSON",
     "print": "打印 / 保存 PDF",
     "correction": "提出更正 ↗",
@@ -103,5 +103,16 @@
     "heading": "这条路径还没有留下足迹。",
     "text": "你可以回到首页，继续阅读我们的研究与思考。",
     "back": "返回首页"
+  },
+  "citation": {
+    "title": "引用本文",
+    "intro": "如果这篇文章对你的研究有帮助，可以使用以下条目引用本文。",
+    "copy": "复制 BibTeX",
+    "copied": "已复制",
+    "success": "引用已复制到剪贴板。",
+    "failure": "无法自动复制，已选中 BibTeX 文本，请手动复制。",
+    "download": "下载本文引用 (.bib)",
+    "language_note": "Blog post, Chinese version.",
+    "published": "发表于"
   }
 }

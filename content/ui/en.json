@@ -61,7 +61,7 @@
     "continue": "Continue exploring",
     "continue_text": "Download the article and references, examine the original experiments, or suggest a correction on GitHub.",
     "markdown": "Download Markdown",
-    "bibtex": "Download BibTeX",
+    "bibtex": "Reference bibliography (.bib)",
     "json": "References JSON",
     "print": "Print / save PDF",
     "correction": "Suggest a correction ↗",
@@ -103,5 +103,16 @@
     "heading": "No footsteps on this path yet.",
     "text": "Return to the home page to explore our research and perspectives.",
     "back": "Back to home"
+  },
+  "citation": {
+    "title": "Cite this article",
+    "intro": "If you find this article useful, you can cite it using the entry below.",
+    "copy": "Copy BibTeX",
+    "copied": "Copied",
+    "success": "Citation copied to clipboard.",
+    "failure": "Copy is unavailable. The BibTeX text is selected for manual copying.",
+    "download": "Download article citation (.bib)",
+    "language_note": "Blog post, English version.",
+    "published": "Published"
   }
 }
