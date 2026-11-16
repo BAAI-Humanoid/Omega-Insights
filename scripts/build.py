@@ -218,7 +218,7 @@ def build_home(posts, lang):
     count_label = ui['count'].format(count=len(posts))
     if lang == "en":
         count_label = f"{len(posts):02d} " + ("article" if len(posts) == 1 else "articles")
-    body = f'''<main id="main" class="container"><section class="hero"><p class="eyebrow">OMEGA INSIGHTS / BAAI-HUMANOID</p><h1 class="hero-title">{e(ui['title'][0])}<br><span>{e(ui['title'][1])}</span></h1><p class="hero-deck">{e(ui['deck'])}</p><div class="hero-meta">{topics}</div></section><section id="articles" aria-labelledby="articles-title"><div class="section-heading"><h2 id="articles-title">{ui['section']}</h2><span>{count_label}</span></div>{previews}</section><section class="research-strip" aria-label="{ui['focus']}">{cards}</section></main>'''
+    body = f'''<main id="main" class="container"><section class="hero"><p class="eyebrow">OMEGA INSIGHTS</p><h1 class="hero-title">{e(ui['title'][0])}<br><span>{e(ui['title'][1])}</span></h1><p class="hero-deck">{e(ui['deck'])}</p><div class="hero-meta">{topics}</div></section><section id="articles" aria-labelledby="articles-title"><div class="section-heading"><h2 id="articles-title">{ui['section']}</h2><span>{count_label}</span></div>{previews}</section><section class="research-strip" aria-label="{ui['focus']}">{cards}</section></main>'''
     write(route(lang, "index.html"), shell(CONFIG['name'], UI[lang]['description'], body, lang))
 
 
