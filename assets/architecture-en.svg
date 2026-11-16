@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="640" viewBox="0 0 1050 640" role="img" aria-labelledby="title desc">
+  <title id="title">Proposed architecture: replaceable cognition, cumulative physical skills and a data feedback loop</title>
+  <desc id="desc">System 2 plans; the Agent Runtime turns goals into skill contracts and coordinates execution. System 1 maps multimodal observations to action chunks. System 0 handles state estimation, constraints and control. Physical observations, outcomes and failures enter versioned data infrastructure for training and independent robot evaluation. This is the authors' proposed division of responsibilities, not Figure's official architecture.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#526b60"/></marker>
+    <marker id="orangeArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#b95632"/></marker>
+    <style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif}.label{font-size:14px;fill:#62746a}.title{font-size:21px;font-weight:600;fill:#183c31}.small{font-size:14px;fill:#476054}.side{font-size:13px;fill:#476054}.line{stroke:#526b60;stroke-width:1.6;fill:none;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1050" height="640" fill="#fafbf7"/>
+  <text x="38" y="44" font-size="13" font-weight="600" letter-spacing="1.7" fill="#155c4e">PROPOSED SYSTEM ARCHITECTURE</text>
+  <text x="38" y="76" font-size="23" font-weight="600" fill="#183c31">Replaceable cognition. Cumulative physical experience.</text>
+  <text x="38" y="148" class="label">Goals &amp; semantics</text>
+  <text x="38" y="171" class="small">Use general models</text>
+  <rect x="224" y="112" width="510" height="77" rx="4" fill="#eef2ec" stroke="#b9c8bb"/>
+  <text x="246" y="144" class="title">System 2 · Replaceable planning</text>
+  <text x="246" y="171" class="small">Task decomposition · tool use · goals and constraints</text>
+  <path d="M479 190 V214" class="line"/>
+  <text x="38" y="248" class="label">Coordination</text>
+  <text x="38" y="271" class="small">Execution contracts</text>
+  <rect x="224" y="218" width="510" height="67" rx="4" fill="#155c4e"/>
+  <text x="246" y="247" font-size="21" font-weight="600" fill="#fff">Agent Runtime</text>
+  <text x="246" y="271" font-size="13" fill="#e0ece2">Skill dispatch · async execution · interrupts · recovery · acceptance</text>
+  <path d="M479 286 V309" class="line"/>
+  <text x="38" y="349" class="label">Action &amp; contact</text>
+  <text x="38" y="372" class="small">Build domain skills</text>
+  <rect x="224" y="313" width="510" height="77" rx="4" fill="#e7efe6" stroke="#aebfad"/>
+  <text x="246" y="345" class="title">System 1 · Multimodal action policy</text>
+  <text x="246" y="372" class="small">Vision / touch / proprioception → action chunks &amp; recovery</text>
+  <path d="M479 391 V414" class="line"/>
+  <text x="38" y="451" class="label">Real-time execution</text>
+  <text x="38" y="472" font-size="13" fill="#476054">Body adaptation</text>
+  <text x="38" y="491" font-size="13" fill="#476054">and constraints</text>
+  <rect x="224" y="418" width="510" height="71" rx="4" fill="#edf0e9" stroke="#b9c8bb"/>
+  <text x="246" y="448" class="title">System 0 · Execution control</text>
+  <text x="246" y="474" class="small">State estimation · calibration / sync · control · safety limits</text>
+  <path d="M479 490 V514" class="line"/>
+  <rect x="224" y="518" width="510" height="59" rx="4" fill="#f5eee4" stroke="#d8c5ae"/>
+  <text x="246" y="543" font-size="20" font-weight="600" fill="#183c31">Physical world</text>
+  <text x="246" y="565" class="small">Execution, observations and task outcomes</text>
+  <path d="M224 547 H198 V252 H220" class="line"/>
+  <text transform="translate(183 500) rotate(-90)" font-size="12" fill="#62746a">Progress · failure signals · local replanning</text>
+  <rect x="800" y="112" width="212" height="465" rx="4" fill="#fff" stroke="#c8d2c7"/>
+  <rect x="800" y="112" width="4" height="465" fill="#c2542d"/>
+  <text x="822" y="148" font-size="18" font-weight="600" fill="#183c31">Data &amp; evaluation</text>
+  <text x="822" y="178" class="side">End-to-end logs &amp; versions</text>
+  <path d="M822 197 H988" stroke="#d9dfd7"/>
+  <text x="822" y="225" class="side">Aligned sensing &amp; actions</text>
+  <text x="822" y="257" class="side">Failure analysis &amp;</text>
+  <text x="822" y="275" class="side">targeted collection</text>
+  <text x="822" y="307" class="side">Dataset snapshots &amp;</text>
+  <text x="822" y="325" class="side">provenance</text>
+  <text x="822" y="357" class="side">Training &amp; ablations</text>
+  <text x="822" y="387" class="side">Independent robot tests</text>
+  <path d="M822 407 H988" stroke="#d9dfd7"/>
+  <text x="822" y="444" font-size="16" font-weight="600" fill="#b95632">Feedback metrics</text>
+  <text x="822" y="476" class="side">Success · recovery</text>
+  <text x="822" y="506" class="side">Interventions / throughput</text>
+  <text x="822" y="536" class="side">Latency · data efficiency</text>
+  <path d="M734 547 H796" fill="none" stroke="#b95632" stroke-width="1.8" marker-end="url(#orangeArrow)"/>
+  <path d="M800 351 H738" fill="none" stroke="#b95632" stroke-width="1.8" marker-end="url(#orangeArrow)"/>
+  <text x="38" y="616" font-size="12" fill="#718074">Conceptual proposal, not Figure's official architecture. These responsibilities need not be implemented as separate networks.</text>
+</svg>

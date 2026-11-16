@@ -1,0 +1,107 @@
+{
+  "description": "关于具身智能、全身移动操作与物理世界学习的技术观察。",
+  "og_locale": "zh_CN",
+  "language_name": "中文",
+  "language_label": "选择语言",
+  "skip": "跳到正文",
+  "nav": {
+    "label": "主导航",
+    "articles": "文章",
+    "about": "关于"
+  },
+  "footer": {
+    "label": "页脚导航",
+    "rss": "RSS 订阅",
+    "source": "网站源码 ↗",
+    "about": "关于本站",
+    "copyright": "研究观察与技术讨论"
+  },
+  "home": {
+    "title": [
+      "让智能",
+      "走进物理世界。"
+    ],
+    "deck": "记录具身智能的技术进展，讨论系统选择，沉淀可以被实验检验的判断。",
+    "topics": [
+      "全身移动操作",
+      "灵巧操控",
+      "数据与学习"
+    ],
+    "section": "研究与思考",
+    "count": "{count:02d} 篇文章",
+    "preview": "研究观察 · {minutes} 分钟",
+    "read": "阅读全文",
+    "focus": "研究关注",
+    "cards": [
+      {
+        "label": "01 / CONTROL",
+        "title": "与物理世界交互",
+        "text": "在运动、接触与扰动中，建立可靠的全身控制和操作能力。"
+      },
+      {
+        "label": "02 / SYSTEMS",
+        "title": "让系统协同工作",
+        "text": "理解规划、动作与反馈的接口，把单次演示推进到稳定执行。"
+      },
+      {
+        "label": "03 / DATA",
+        "title": "让经验进入下一轮学习",
+        "text": "连接数据采集、训练与实机评测，让每次失败都能留下可用的证据。"
+      }
+    ]
+  },
+  "article": {
+    "eyebrow": "INSIGHTS / 研究观察",
+    "minutes": "约 {minutes} 分钟阅读",
+    "references": "{count} 项参考资料",
+    "toc": "本文目录",
+    "top": "返回顶部 ↑",
+    "table": "技术对照表",
+    "files": "文章文件",
+    "continue": "继续研究",
+    "continue_text": "下载正文与引用，复查原始实验，也欢迎通过 GitHub 提交补充与更正。",
+    "markdown": "下载 Markdown",
+    "bibtex": "下载 BibTeX",
+    "json": "引用 JSON",
+    "print": "打印 / 保存 PDF",
+    "correction": "提出更正 ↗",
+    "authors_separator": "、"
+  },
+  "about": {
+    "eyebrow": "ABOUT / 关于",
+    "title": [
+      "从研究问题，",
+      "到物理世界里的答案。"
+    ],
+    "deck": "Omega Insights 是 BAAI-Humanoid 的技术观察与讨论空间。",
+    "sections": [
+      {
+        "title": "我们关注什么",
+        "paragraphs": [
+          "根据团队在 <a href=\"{organization_url}\">GitHub 组织主页</a>公开的研究方向，我们关注人形机器人的全身移动操作：协调运动与操作、接触丰富的全身控制、双臂与灵巧操作、遥操作和数据，以及仿真到真实部署。",
+          "本站记录公开技术路线的梳理、系统设计的取舍，以及值得进一步验证的问题。"
+        ]
+      },
+      {
+        "title": "如何阅读这些文章",
+        "paragraphs": [
+          "我们尽量将公开事实、厂商报告的实验结果和自己的判断分开呈现。数值应结合原文中的任务、数据与评测设置理解；不同公司的演示不能直接构成统一排行榜。",
+          "文章包含逐项引用、资料范围和核验日期。若后续出现新证据，我们将通过 Git 保留修订记录。"
+        ]
+      },
+      {
+        "title": "引用与更正",
+        "paragraphs": [
+          "每篇技术长文提供 Markdown、BibTeX 和结构化参考资料下载。BibTeX 为原始资料的引用条目；网页资料与学术论文会保持各自身份。",
+          "欢迎在<a href=\"{issues_url}\">网站仓库提出更正</a>，也欢迎提交有来源的补充。"
+        ]
+      }
+    ]
+  },
+  "error": {
+    "title": "页面未找到",
+    "heading": "这条路径还没有留下足迹。",
+    "text": "你可以回到首页，继续阅读我们的研究与思考。",
+    "back": "返回首页"
+  }
+}

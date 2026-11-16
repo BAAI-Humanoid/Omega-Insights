@@ -1,0 +1,107 @@
+{
+  "description": "Technical perspectives on embodied intelligence, whole-body mobile manipulation, and learning in the physical world.",
+  "og_locale": "en_US",
+  "language_name": "English",
+  "language_label": "Choose language",
+  "skip": "Skip to content",
+  "nav": {
+    "label": "Main navigation",
+    "articles": "Articles",
+    "about": "About"
+  },
+  "footer": {
+    "label": "Footer navigation",
+    "rss": "RSS feed",
+    "source": "Source code ↗",
+    "about": "About this site",
+    "copyright": "Research perspectives and technical discussion"
+  },
+  "home": {
+    "title": [
+      "Bringing intelligence",
+      "into the physical world."
+    ],
+    "deck": "Tracking progress in embodied intelligence, examining system design choices, and developing ideas that experiments can test.",
+    "topics": [
+      "Whole-body manipulation",
+      "Dexterous skills",
+      "Data and learning"
+    ],
+    "section": "Research & perspectives",
+    "count": "{count:02d} article(s)",
+    "preview": "Research perspective · {minutes} min",
+    "read": "Read the article",
+    "focus": "Research focus",
+    "cards": [
+      {
+        "label": "01 / CONTROL",
+        "title": "Interacting with the physical world",
+        "text": "Building reliable whole-body control and manipulation through motion, contact, and disturbances."
+      },
+      {
+        "label": "02 / SYSTEMS",
+        "title": "Making the system work together",
+        "text": "Connecting planning, action, and feedback to turn demonstrations into reliable execution."
+      },
+      {
+        "label": "03 / DATA",
+        "title": "Learning from every interaction",
+        "text": "Linking data collection, training, and real-world evaluation so failures provide evidence for the next improvement."
+      }
+    ]
+  },
+  "article": {
+    "eyebrow": "INSIGHTS / RESEARCH PERSPECTIVES",
+    "minutes": "{minutes} min read",
+    "references": "{count} references",
+    "toc": "On this page",
+    "top": "Back to top ↑",
+    "table": "Technical comparison",
+    "files": "Article downloads",
+    "continue": "Continue exploring",
+    "continue_text": "Download the article and references, examine the original experiments, or suggest a correction on GitHub.",
+    "markdown": "Download Markdown",
+    "bibtex": "Download BibTeX",
+    "json": "References JSON",
+    "print": "Print / save PDF",
+    "correction": "Suggest a correction ↗",
+    "authors_separator": ", "
+  },
+  "about": {
+    "eyebrow": "ABOUT / OMEGA INSIGHTS",
+    "title": [
+      "From research questions",
+      "to answers in the physical world."
+    ],
+    "deck": "Omega Insights is a space for technical perspectives and discussion from BAAI-Humanoid.",
+    "sections": [
+      {
+        "title": "Our focus",
+        "paragraphs": [
+          "As outlined on our <a href=\"{organization_url}\">GitHub organization page</a>, we focus on whole-body mobile manipulation for humanoid robots: coordinated locomotion and manipulation, contact-rich control, bimanual and dexterous skills, teleoperation and data, and sim-to-real deployment.",
+          "We examine publicly described technical approaches, system design trade-offs, and questions that deserve further experiments."
+        ]
+      },
+      {
+        "title": "Reading these articles",
+        "paragraphs": [
+          "We aim to distinguish public technical facts, results reported by companies, and our own judgments. Numerical results should be read in the context of the original tasks, data, and evaluation protocols. Demonstrations from different companies do not form a common leaderboard.",
+          "Articles include references, their scope, and the date sources were checked. Git preserves a revision history as new evidence leads to updates."
+        ]
+      },
+      {
+        "title": "References and corrections",
+        "paragraphs": [
+          "Each technical essay includes Markdown, BibTeX, and structured reference downloads. BibTeX entries cite the original sources, preserving the distinction between web publications and research papers.",
+          "We welcome <a href=\"{issues_url}\">corrections in the site repository</a> and additions supported by sources."
+        ]
+      }
+    ]
+  },
+  "error": {
+    "title": "Page not found",
+    "heading": "No footsteps on this path yet.",
+    "text": "Return to the home page to explore our research and perspectives.",
+    "back": "Back to home"
+  }
+}

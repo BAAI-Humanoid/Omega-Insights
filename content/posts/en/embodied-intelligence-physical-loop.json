@@ -1,0 +1,17 @@
+{
+  "slug": "embodied-intelligence-physical-loop",
+  "title": "As General-Purpose Models Get Stronger, What Should Embodied AI Teams Build?",
+  "subtitle": "From Helix, π, and Gemini Robotics to System 0/1, agent coordination, and data feedback loops",
+  "summary": "Advances in general cognition are reshaping the research boundaries of embodied AI teams. Examining approaches from Figure, PI, Gemini, Skild, and others, we discuss how to make System 2 replaceable, invest in reliable physical execution and system coordination, and use experiments to decide what to build ourselves.",
+  "date": "2026-11-16",
+  "updated": "2026-11-16",
+  "authors": [
+    "BAAI-Humanoid"
+  ],
+  "tags": [
+    "Embodied AI",
+    "System 0/1/2",
+    "Data feedback loops",
+    "Technical perspectives"
+  ]
+}

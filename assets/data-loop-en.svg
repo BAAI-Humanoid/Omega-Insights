@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="610" viewBox="0 0 1050 610" role="img" aria-labelledby="title desc">
+  <title id="title">Embodied data feedback: from task failures to reproducible capability gains</title>
+  <desc id="desc">Six stages form a continuous improvement loop: define tasks and diagnose failures, collect targeted data, version datasets, train and run ablations, evaluate independently on robots, and feed deployment experience back into research. Evaluation gates releases; new failures guide the next collection round. Shared foundations include synchronization, calibration, provenance, access rights and experiment records.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#5e796a"/></marker>
+    <style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif}.n{font-size:13px;letter-spacing:1px;fill:#b95632;font-weight:600}.h{font-size:20px;fill:#183c31;font-weight:600}.b{font-size:14px;fill:#576e60}.flow{fill:none;stroke:#5e796a;stroke-width:1.8;marker-end:url(#a)}</style>
+  </defs>
+  <rect width="1050" height="610" fill="#fafbf7"/>
+  <text x="40" y="43" font-size="13" font-weight="600" letter-spacing="1.7" fill="#155c4e">DATA → MODEL → REAL-WORLD EVALUATION</text>
+  <text x="40" y="77" font-size="24" font-weight="600" fill="#183c31">Turn every failure into the next testable improvement.</text>
+  <rect x="40" y="118" width="280" height="153" rx="4" fill="#fff" stroke="#c9d5c9"/>
+  <text x="62" y="148" class="n">01 / DEFINE</text>
+  <text x="62" y="182" class="h">Task &amp; failure analysis</text>
+  <text x="62" y="211" class="b">Acceptance criteria; failure types</text>
+  <text x="62" y="232" class="b">Locate model, data or</text>
+  <text x="62" y="253" class="b">hardware bottlenecks</text>
+  <path d="M324 194 H380" class="flow"/>
+  <rect x="385" y="118" width="280" height="153" rx="4" fill="#fff" stroke="#c9d5c9"/>
+  <text x="407" y="148" class="n">02 / COLLECT</text>
+  <text x="407" y="182" class="h">Targeted collection</text>
+  <text x="407" y="211" class="b">Teleoperation / human demos / sim</text>
+  <text x="407" y="232" class="b">Add contact, perturbation</text>
+  <text x="407" y="253" class="b">and recovery examples</text>
+  <path d="M669 194 H725" class="flow"/>
+  <rect x="730" y="118" width="280" height="153" rx="4" fill="#fff" stroke="#c9d5c9"/>
+  <text x="752" y="148" class="n">03 / VERSION</text>
+  <text x="752" y="182" class="h">Versioned datasets</text>
+  <text x="752" y="211" class="b">Quality / provenance / deduplication</text>
+  <text x="752" y="232" class="b">Hold out scenes, objects</text>
+  <text x="752" y="253" class="b">and skills</text>
+  <path d="M870 276 V345" class="flow"/>
+  <rect x="730" y="350" width="280" height="153" rx="4" fill="#e8efe6" stroke="#afc1ae"/>
+  <text x="752" y="380" class="n">04 / LEARN</text>
+  <text x="752" y="414" class="h">Training &amp; ablations</text>
+  <text x="752" y="443" class="b">Fix budgets; log configs &amp; seeds</text>
+  <text x="752" y="464" class="b">Isolate the contributions</text>
+  <text x="752" y="485" class="b">of data and models</text>
+  <path d="M725 426 H670" class="flow"/>
+  <rect x="385" y="350" width="280" height="153" rx="4" fill="#155c4e"/>
+  <text x="407" y="380" font-size="13" font-weight="600" letter-spacing="1px" fill="#d4e8d5">05 / EVALUATE</text>
+  <text x="407" y="414" font-size="20" font-weight="600" fill="#fff">Independent robot tests</text>
+  <text x="407" y="443" font-size="14" fill="#e0ece2">Success / recovery on real robots</text>
+  <text x="407" y="464" font-size="14" fill="#e0ece2">Interventions / latency</text>
+  <text x="407" y="485" font-size="14" fill="#e0ece2">Release only after passing gates</text>
+  <path d="M380 426 H325" class="flow"/>
+  <rect x="40" y="350" width="280" height="153" rx="4" fill="#f5eee4" stroke="#d8c5ae"/>
+  <text x="62" y="380" class="n">06 / OPERATE</text>
+  <text x="62" y="414" class="h">Deployment feedback</text>
+  <text x="62" y="443" class="b">Retain trajectories, outcomes</text>
+  <text x="62" y="464" class="b">and human interventions</text>
+  <text x="62" y="485" class="b">Track drift and new failures</text>
+  <path d="M180 345 V276" class="flow"/>
+  <text x="525" y="315" text-anchor="middle" font-size="15" fill="#62746a">Capability gains must hold up in independent tests.</text>
+  <path d="M40 540 H1010" stroke="#d4ddd2"/>
+  <text x="40" y="574" font-size="14" font-weight="600" fill="#183c31">Shared foundations</text>
+  <text x="190" y="574" font-size="13" fill="#62746a">Sync &amp; calibration / Provenance &amp; access / Experiment lineage / Replayable logs / Rollback</text>
+</svg>

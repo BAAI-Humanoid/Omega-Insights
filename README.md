@@ -4,6 +4,7 @@ BAAI-Humanoid 关于具身智能、全身移动操作与物理世界学习的技
 
 - 仓库：[BAAI-Humanoid/Omega-Insights](https://github.com/BAAI-Humanoid/Omega-Insights)
 - 网站：<https://baai-humanoid.github.io/Omega-Insights/>（首次部署成功后可用）
+- English: <https://baai-humanoid.github.io/Omega-Insights/en/>
 - 首篇文章：**通用模型越强，具身团队越该做什么？**
 
 ## 首次启用 GitHub Pages
@@ -41,6 +42,8 @@ python3 -m venv .venv
 
 在 `content/posts/` 增加同名 `.md` 与 `.json` 文件，在 `content/references/` 增加对应引用清单。详细格式见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
+每篇文章同时提供中文和完整英文版本：中文保存在 `content/posts/`，英文保存在 `content/posts/en/`，两者使用相同文件名和 `slug`。共用一份引用 JSON，脚注 ID 与来源保持一致。页头的 **中文 / EN** 按钮会切换到当前页面的另一语言版本，首页、关于页、文章、RSS 与 Markdown 下载均按语言生成；不依赖浏览器 JavaScript 即可切换。
+
 ```sh
 git switch -c post/your-topic
 # 编辑文章、元数据与引用
@@ -55,7 +58,9 @@ git push -u origin post/your-topic
 
 ```text
 content/posts/           文章 Markdown + 元数据 JSON
+content/posts/en/        对应的完整英文文章和元数据
 content/references/      每篇文章的结构化引用
+content/ui/              中英文界面文案
 assets/                  样式、渐进增强脚本、原创示意图
 scripts/build.py         生成文章、目录、首页、下载、RSS、站点地图
 scripts/check_site.py    检查本地链接、锚点、脚注和引用完整性
@@ -69,6 +74,8 @@ dist/                    生成产物，不提交 Git
 首篇基于 2026 年 9 月 24 日分享材料，2026 年 11 月 16 日整理并核验引用。它讨论指定版本的技术路线，并非当前最新模型清单。外部实验数字保留任务和评测边界；团队建议不代表已经完成的内部实验。
 
 每篇文章自动导出 Markdown、BibTeX 与 JSON 引用。BibTeX 对应原始来源；未公开的作者、日期、DOI 不会补造。官网博客不标作同行评审论文。
+
+中文 Markdown 下载保留原文件名，英文使用 `.en.md`；BibTeX 与引用 JSON 由两个语言版本共用。英文图示使用 `-en.svg`，保持与中文图示相同的技术含义。
 
 许可见仓库已有的 [Apache-2.0 LICENSE](LICENSE)。引用的第三方资料归其权利人所有；图示为本站原创技术示意。
 
