@@ -1,0 +1,192 @@
+[
+  {
+    "id": "gpt6",
+    "title": "GPT-6 Astra: A new generation of intelligence",
+    "organization": "OpenAI",
+    "url": "https://openai.com/index/gpt-6-astra/",
+    "published": "2026",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "helix",
+    "title": "Helix: A Vision-Language-Action Model for Generalist Humanoid Control",
+    "organization": "Figure",
+    "url": "https://www.figure.ai/news/helix",
+    "published": "2025-02-20",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "helix02",
+    "title": "Introducing Helix 02: Full-Body Autonomy",
+    "organization": "Figure",
+    "url": "https://www.figure.ai/news/helix-02",
+    "published": "2026-01-27",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "helix25",
+    "title": "Helix 2.5: Zero-Shot 30-Home Generalization",
+    "organization": "Figure",
+    "url": "https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization",
+    "published": "2026-09-17",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "index",
+    "title": "Introducing Index: Building The World’s Largest and Most Diverse Physical Dataset",
+    "organization": "Figure",
+    "url": "https://www.figure.ai/news/introducing-index",
+    "published": "2026-08-25",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "pi0",
+    "title": "π₀: Our First Generalist Policy",
+    "organization": "Physical Intelligence",
+    "url": "https://www.pi.website/blog/pi0",
+    "published": "2024-10-31",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "pi05",
+    "title": "π₀.₅: A VLA with Open-World Generalization",
+    "organization": "Physical Intelligence",
+    "url": "https://www.pi.website/blog/pi05",
+    "published": "2025-04-22",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "pistar06",
+    "title": "π*₀.₆: A VLA that Learns from Experience",
+    "organization": "Physical Intelligence",
+    "url": "https://www.pi.website/blog/pistar06",
+    "published": "2025-11-17",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "pi07",
+    "title": "π₀.₇: A Steerable Model with Emergent Capabilities",
+    "organization": "Physical Intelligence",
+    "url": "https://www.pi.website/blog/pi07",
+    "published": "2026-04-16",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "gemini15",
+    "title": "Gemini Robotics 1.5 brings AI agents into the physical world",
+    "organization": "Google DeepMind",
+    "url": "https://deepmind.google/blog/gemini-robotics-15-brings-ai-agents-into-the-physical-world/",
+    "published": "2025-09-25",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "gemini2",
+    "title": "Gemini Robotics 2 brings whole body intelligence to robots",
+    "organization": "Google DeepMind",
+    "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+    "published": "2026-07-30",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "umi",
+    "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+    "organization": "Chi, C., Xu, Z., Pan, C., et al",
+    "url": "https://umi-gripper.github.io/",
+    "accessed": "2026-11-16",
+    "type": "inproceedings",
+    "published": "2024",
+    "authors": [
+      "Cheng Chi",
+      "Zhenjia Xu",
+      "Chuer Pan",
+      "Eric Cousineau",
+      "Benjamin Burchfiel",
+      "Siyuan Feng",
+      "Russ Tedrake",
+      "Shuran Song"
+    ],
+    "booktitle": "Proceedings of Robotics: Science and Systems",
+    "eprint": "2402.10329",
+    "archivePrefix": "arXiv"
+  },
+  {
+    "id": "gen0",
+    "title": "GEN-0: Embodied Foundation Models That Scale with Physical Interaction",
+    "organization": "Generalist",
+    "url": "https://generalistai.com/blog/gen-0",
+    "published": "2025-11-04",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "gen1",
+    "title": "GEN-1: Scaling Embodied Foundation Models to Mastery",
+    "organization": "Generalist",
+    "url": "https://generalistai.com/blog/gen-1",
+    "published": "2026-04-02",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "gen15",
+    "title": "GEN-1.5: Embodied Foundation Models are One-Shot Learners",
+    "organization": "Generalist",
+    "url": "https://generalistai.com/blog/gen-1.5",
+    "published": "2026-08-19",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "om1",
+    "title": "OM-1: Frontier Robot Intelligence, Learned Firsthand from Humans",
+    "organization": "Reward AI Team",
+    "url": "https://www.rewardai.com/blog/OM-1/",
+    "published": "2026-09",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "skilds1",
+    "title": "Introducing S1: In-Context Learning for Robotics",
+    "organization": "Skild AI",
+    "url": "https://www.skild.ai/blogs/s1",
+    "published": "2026-08",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "selfplay",
+    "title": "Physical Self-Play",
+    "organization": "Skild AI",
+    "url": "https://www.skild.ai/blogs/physical-self-play",
+    "published": "2026-09-23",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "atlas",
+    "title": "Large Behavior Models and Atlas Find New Footing",
+    "organization": "Boston Dynamics / Toyota Research Institute",
+    "url": "https://bostondynamics.com/blog/large-behavior-models-atlas-find-new-footing/",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "simate",
+    "title": "Intelligence, in motion — Platform, Model, Scientist",
+    "organization": "Simate",
+    "url": "https://mate-robot.cn/home/",
+    "accessed": "2026-11-16"
+  },
+  {
+    "id": "rtc",
+    "title": "Real-Time Execution of Action Chunking Flow Policies",
+    "organization": "Black, K., Galliker, M. Y., & Levine, S",
+    "url": "https://www.pi.website/download/real_time_chunking.pdf",
+    "accessed": "2026-11-16",
+    "type": "inproceedings",
+    "published": "2025",
+    "authors": [
+      "Kevin Black",
+      "Manuel Y. Galliker",
+      "Sergey Levine"
+    ],
+    "booktitle": "Advances in Neural Information Processing Systems",
+    "volume": "38",
+    "eprint": "2506.07339",
+    "archivePrefix": "arXiv"
+  }
+]

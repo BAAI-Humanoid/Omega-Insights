@@ -1,0 +1,17 @@
+{
+  "slug": "embodied-intelligence-physical-loop",
+  "title": "通用模型越强，具身团队越该做什么？",
+  "subtitle": "从 Helix、π、Gemini Robotics 到 System 0/1、Agent 协同与数据闭环",
+  "summary": "通用认知的进步正在改变具身团队的研究边界。沿着 Figure、PI、Gemini、Skild 等公司的技术路线，我们讨论：如何让 System 2 可替换，把投入落实到可靠的物理执行、系统协同和数据闭环，并用实验决定自研范围。",
+  "date": "2026-11-16",
+  "updated": "2026-11-16",
+  "authors": [
+    "BAAI-Humanoid"
+  ],
+  "tags": [
+    "具身智能",
+    "System 0/1/2",
+    "数据闭环",
+    "技术路线"
+  ]
+}

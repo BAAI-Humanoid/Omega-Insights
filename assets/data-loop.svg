@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="610" viewBox="0 0 1050 610" role="img" aria-labelledby="title desc">
+  <title id="title">具身数据闭环：从任务失败到可复现的能力改进</title>
+  <desc id="desc">六个步骤组成持续改进闭环：定义任务与归因失败，定向采集数据，形成版本化数据集，训练和消融实验，独立实机评测，部署后的运行回流。评测结果决定是否发布，运行中的新失败触发下一轮采集。共同基础是时间同步、标定、数据来源和实验记录。</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#5e796a"/></marker>
+    <style>text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif}.n{font-size:13px;letter-spacing:1px;fill:#b95632;font-weight:600}.h{font-size:23px;fill:#183c31;font-weight:600}.b{font-size:16px;fill:#576e60}.flow{fill:none;stroke:#5e796a;stroke-width:1.8;marker-end:url(#a)}</style>
+  </defs>
+  <rect width="1050" height="610" fill="#fafbf7"/>
+  <text x="40" y="43" font-size="13" font-weight="600" letter-spacing="1.7" fill="#155c4e">DATA → MODEL → REAL-WORLD EVALUATION</text>
+  <text x="40" y="77" font-size="24" font-weight="600" fill="#183c31">让每一次失败，都能变成下一轮可验证的改进</text>
+  <rect x="40" y="118" width="280" height="153" rx="4" fill="#fff" stroke="#c9d5c9"/>
+  <text x="62" y="148" class="n">01 / DEFINE</text>
+  <text x="62" y="184" class="h">任务与失败</text>
+  <text x="62" y="216" class="b">明确验收条件、失败类型</text>
+  <text x="62" y="241" class="b">定位模型 / 数据 / 硬件瓶颈</text>
+  <path d="M324 194 H380" class="flow"/>
+  <rect x="385" y="118" width="280" height="153" rx="4" fill="#fff" stroke="#c9d5c9"/>
+  <text x="407" y="148" class="n">02 / COLLECT</text>
+  <text x="407" y="184" class="h">定向采集</text>
+  <text x="407" y="216" class="b">遥操作 · 人类演示 · 仿真</text>
+  <text x="407" y="241" class="b">补充接触、扰动与恢复数据</text>
+  <path d="M669 194 H725" class="flow"/>
+  <rect x="730" y="118" width="280" height="153" rx="4" fill="#fff" stroke="#c9d5c9"/>
+  <text x="752" y="148" class="n">03 / VERSION</text>
+  <text x="752" y="184" class="h">版本化数据集</text>
+  <text x="752" y="216" class="b">质量检查 · 来源追踪 · 去重</text>
+  <text x="752" y="241" class="b">按场景 / 物体 / 技能留出</text>
+  <path d="M870 276 V345" class="flow"/>
+  <rect x="730" y="350" width="280" height="153" rx="4" fill="#e8efe6" stroke="#afc1ae"/>
+  <text x="752" y="380" class="n">04 / LEARN</text>
+  <text x="752" y="416" class="h">训练与消融</text>
+  <text x="752" y="448" class="b">固定预算、记录配置和种子</text>
+  <text x="752" y="473" class="b">隔离数据与模型的真实贡献</text>
+  <path d="M725 426 H670" class="flow"/>
+  <rect x="385" y="350" width="280" height="153" rx="4" fill="#155c4e"/>
+  <text x="407" y="380" font-size="13" font-weight="600" letter-spacing="1px" fill="#d4e8d5">05 / EVALUATE</text>
+  <text x="407" y="416" font-size="23" font-weight="600" fill="#fff">独立实机评测</text>
+  <text x="407" y="448" font-size="16" fill="#e0ece2">成功、恢复、干预与延迟</text>
+  <text x="407" y="473" font-size="16" fill="#e0ece2">满足门槛再发布新版本</text>
+  <path d="M380 426 H325" class="flow"/>
+  <rect x="40" y="350" width="280" height="153" rx="4" fill="#f5eee4" stroke="#d8c5ae"/>
+  <text x="62" y="380" class="n">06 / OPERATE</text>
+  <text x="62" y="416" class="h">运行回流</text>
+  <text x="62" y="448" class="b">保留轨迹、结果与人工干预</text>
+  <text x="62" y="473" class="b">监测分布变化与新增失败</text>
+  <path d="M180 345 V276" class="flow"/>
+  <text x="525" y="315" text-anchor="middle" font-size="15" fill="#62746a">能力提升必须在独立测试中成立</text>
+  <path d="M40 540 H1010" stroke="#d4ddd2"/>
+  <text x="40" y="574" font-size="15" font-weight="600" fill="#183c31">共同基础</text>
+  <text x="145" y="574" font-size="15" fill="#62746a">时间同步与标定　/　数据来源与权限　/　实验谱系　/　可重放日志　/　版本回滚</text>
+</svg>

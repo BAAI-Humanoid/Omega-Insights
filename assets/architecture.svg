@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="640" viewBox="0 0 1050 640" role="img" aria-labelledby="title desc">
+  <title id="title">建议架构：可替换的认知层，持续积累的物理执行与数据闭环</title>
+  <desc id="desc">System 2 负责规划，Agent Runtime 将目标转为技能契约并协调执行。System 1 根据多模态观测输出动作块，System 0 负责状态估计、约束和控制。物理世界产生的观测、结果和失败流入版本化数据基础设施，用于训练与独立实机评测。本图是团队建议的系统划分，不是 Figure 官方架构图。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#526b60"/></marker>
+    <marker id="orangeArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#b95632"/></marker>
+    <style>text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif}.label{font-size:16px;fill:#62746a}.title{font-size:22px;font-weight:600;fill:#183c31}.small{font-size:15px;fill:#476054}.line{stroke:#526b60;stroke-width:1.6;fill:none;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1050" height="640" fill="#fafbf7"/>
+  <text x="38" y="44" font-size="13" font-weight="600" letter-spacing="1.7" fill="#155c4e">PROPOSED SYSTEM ARCHITECTURE</text>
+  <text x="38" y="76" font-size="23" font-weight="600" fill="#183c31">让认知层可替换，让物理经验可积累</text>
+  <text x="38" y="148" class="label">目标与语义</text>
+  <text x="38" y="171" class="small">接入通用模型</text>
+  <rect x="224" y="112" width="510" height="77" rx="4" fill="#eef2ec" stroke="#b9c8bb"/>
+  <text x="246" y="144" class="title">System 2 · 可替换的规划层</text>
+  <text x="246" y="171" class="small">任务分解 · 工具使用 · 目标与约束</text>
+  <path d="M479 190 V214" class="line"/>
+  <text x="38" y="248" class="label">系统协调</text>
+  <text x="38" y="271" class="small">任务执行契约</text>
+  <rect x="224" y="218" width="510" height="67" rx="4" fill="#155c4e"/>
+  <text x="246" y="247" font-size="21" font-weight="600" fill="#fff">Agent Runtime</text>
+  <text x="246" y="271" font-size="15" fill="#e0ece2">技能调度 · 异步执行 · 中断与恢复 · 验收</text>
+  <path d="M479 286 V309" class="line"/>
+  <text x="38" y="349" class="label">动作与接触</text>
+  <text x="38" y="372" class="small">领域能力积累</text>
+  <rect x="224" y="313" width="510" height="77" rx="4" fill="#e7efe6" stroke="#aebfad"/>
+  <text x="246" y="345" class="title">System 1 · 多模态动作策略</text>
+  <text x="246" y="372" class="small">视觉 / 触觉 / 本体感知 → 动作块与恢复行为</text>
+  <path d="M479 391 V414" class="line"/>
+  <text x="38" y="451" class="label">实时执行</text>
+  <text x="38" y="474" class="small">本体适配与约束</text>
+  <rect x="224" y="418" width="510" height="71" rx="4" fill="#edf0e9" stroke="#b9c8bb"/>
+  <text x="246" y="448" class="title">System 0 · 执行控制</text>
+  <text x="246" y="474" class="small">状态估计 · 标定与同步 · 运动控制 · 安全边界</text>
+  <path d="M479 490 V514" class="line"/>
+  <rect x="224" y="518" width="510" height="59" rx="4" fill="#f5eee4" stroke="#d8c5ae"/>
+  <text x="246" y="554" class="title">物理世界 · 执行、观测与任务结果</text>
+  <path d="M224 547 H198 V252 H220" class="line"/>
+  <text transform="translate(183 471) rotate(-90)" font-size="14" fill="#62746a">进展反馈 · 失败信号 · 局部重规划</text>
+  <rect x="800" y="112" width="212" height="465" rx="4" fill="#fff" stroke="#c8d2c7"/>
+  <rect x="800" y="112" width="4" height="465" fill="#c2542d"/>
+  <text x="822" y="148" font-size="20" font-weight="600" fill="#183c31">数据与评测</text>
+  <text x="822" y="178" class="small">全链路记录与版本</text>
+  <path d="M822 197 H988" stroke="#d9dfd7"/>
+  <text x="822" y="233" class="small">同步观测与动作</text>
+  <text x="822" y="270" class="small">失败归因与定向采集</text>
+  <text x="822" y="307" class="small">数据快照与来源追踪</text>
+  <text x="822" y="344" class="small">训练与消融实验</text>
+  <text x="822" y="381" class="small">独立实机测试集</text>
+  <path d="M822 407 H988" stroke="#d9dfd7"/>
+  <text x="822" y="444" font-size="16" font-weight="600" fill="#b95632">闭环指标</text>
+  <text x="822" y="476" class="small">成功率 · 自主恢复</text>
+  <text x="822" y="506" class="small">人工干预 · 吞吐量</text>
+  <text x="822" y="536" class="small">延迟 · 数据效率</text>
+  <path d="M734 547 H796" fill="none" stroke="#b95632" stroke-width="1.8" marker-end="url(#orangeArrow)"/>
+  <path d="M800 351 H738" fill="none" stroke="#b95632" stroke-width="1.8" marker-end="url(#orangeArrow)"/>
+  <text x="38" y="616" font-size="13" fill="#718074">概念示意：本文建议的职责划分；不是 Figure 官方架构，也不规定各层必须使用独立网络。</text>
+</svg>
