@@ -1,0 +1,25 @@
+{
+  "slug": "predict-feel-act-nanjing-forum",
+  "title": "Predict. Feel. Act.：从学会动作，到学会物理交互",
+  "subtitle": "南京论坛报告整理：Omega-EVA、DECO 与 SEET 的研究脉络",
+  "summary": "机器人如何预见动作的后果、理解真实接触，并在变化中持续推进任务？从 Omega-EVA 的潜在后果反馈、DECO 的触觉适配，到正在推进的 SEET，本文梳理我们对物理交互、长时序执行与数据闭环的研究思考。",
+  "date": "2026-11-16",
+  "updated": "2026-11-16",
+  "category": "论坛报告与研究思考",
+  "authors": [
+    {
+      "id": "zhenguo-sun",
+      "name": "孙振国",
+      "type": "Person",
+      "bibtex": "{孙振国}"
+    }
+  ],
+  "tags": [
+    "论坛报告与研究思考",
+    "世界模型",
+    "触觉学习",
+    "物理交互",
+    "数据闭环"
+  ],
+  "citation_key": "sun2026predictfeelact_zh"
+}

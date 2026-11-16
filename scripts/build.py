@@ -104,7 +104,7 @@ def bibliography(items):
         }
         if item.get("published"):
             fields["year"] = item["published"][:4]
-        for field in ("booktitle", "volume", "eprint", "archivePrefix", "doi"):
+        for field in ("journal", "booktitle", "volume", "pages", "series", "publisher", "eprint", "archivePrefix", "doi"):
             if item.get(field):
                 fields[field] = clean(item[field])
         kind = item.get("type", "misc")
@@ -182,6 +182,8 @@ def load_posts():
 
 def build_article(meta, source, refs, lang):
     ui = UI[lang]["article"]
+    category = meta.get("category", ui["category"])
+    eyebrow = ui["eyebrow"].format(category=category)
     source = source.replace("{{BASE}}", BASE)
     renderer = markdown.Markdown(extensions=["extra", "toc", "sane_lists"], extension_configs={"toc": {"slugify": slugify, "toc_depth": "2-2", "permalink": False}})
     content = renderer.convert(source)
@@ -200,10 +202,11 @@ def build_article(meta, source, refs, lang):
     cite = citation_section(meta, lang, bibtex, citation_file)
     toc = renderer.toc.replace('class="toc"', 'class="toc-list"')
     article = f'''<main id="main">
-<header class="article-header container"><a class="eyebrow text-link" href="{path(route(lang, '#articles'))}">{ui['eyebrow']}</a><h1 class="article-title">{e(meta['title'])}</h1><p class="article-deck">{e(meta['subtitle'])}</p><div class="article-meta"><span>{e(authors)}</span><time datetime="{meta['date']}">{meta['date']}</time><span>{ui['minutes'].format(minutes=minutes)}</span><span>{ui['references'].format(count=len(refs))}</span></div>{tags(meta['tags'])}</header>
+<header class="article-header container"><a class="eyebrow text-link" href="{path(route(lang, '#articles'))}">{e(eyebrow)}</a><h1 class="article-title">{e(meta['title'])}</h1><p class="article-deck">{e(meta['subtitle'])}</p><div class="article-meta"><span>{e(authors)}</span><time datetime="{meta['date']}">{meta['date']}</time><span>{ui['minutes'].format(minutes=minutes)}</span><span>{ui['references'].format(count=len(refs))}</span></div>{tags(meta['tags'])}</header>
 <div class="article-layout container"><aside class="toc"><details class="toc-inner" open><summary>{ui['toc']}</summary>{toc}<a class="text-link" href="#cite">{UI[lang]['citation']['title']}</a><a class="text-link toc-top" href="#main">{ui['top']}</a></details></aside><div><article class="article-body prose">{content}</article>{cite}<section class="article-actions" aria-label="{ui['files']}"><h2>{ui['continue']}</h2><p>{ui['continue_text']}</p><div><a class="button" download href="{path(markdown_file)}">{ui['markdown']}</a><a class="button" download href="{path(reference_base + '.bib')}">{ui['bibtex']}</a><a class="button" download href="{path(reference_base + '-references.json')}">{ui['json']}</a><button class="button" data-print hidden type="button">{ui['print']}</button><a class="text-link" href="{CONFIG['repository_url']}/issues/new">{ui['correction']}</a></div></section></div></div>
 </main>'''
     schema = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": meta["title"], "description": meta["summary"], "inLanguage": lang, "datePublished": meta["date"], "dateModified": meta.get("updated", meta["date"]), "author": [{"@type": author["type"], "name": author["name"]} for author in meta["authors"]], "publisher": {"@type": "Organization", "name": "BAAI-Humanoid", "url": CONFIG["organization_url"]}, "mainEntityOfPage": absolute(route(lang, relative)), "citation": [ref["url"] for ref in refs]}
+    schema["articleSection"] = category
     write(route(lang, relative) + "index.html", shell(meta["title"] + " · " + CONFIG["name"], meta["summary"], article, lang, relative, "article-page", schema))
 
 
@@ -212,7 +215,8 @@ def build_home(posts, lang):
     previews = ""
     for i, post in enumerate(posts, 1):
         href = path(route(lang, 'insights/' + post['slug'] + '/'))
-        previews += f'''<article class="featured-post"><div class="post-number">{i:02d}</div><div class="post-preview"><div class="hero-meta"><time datetime="{post['date']}">{post['date']}</time><span>{ui['preview'].format(minutes=post['reading_minutes'])}</span></div><h3 class="post-title"><a href="{href}">{e(post['title'])}</a></h3><p class="post-excerpt">{e(post['summary'])}</p>{tags(post['tags'])}<a class="read-link" href="{href}">{ui['read']} <span aria-hidden="true">↗</span></a></div></article>'''
+        category = post.get("category", UI[lang]["article"]["category"])
+        previews += f'''<article class="featured-post"><div class="post-number">{i:02d}</div><div class="post-preview"><div class="hero-meta"><time datetime="{post['date']}">{post['date']}</time><span>{e(ui['preview'].format(category=category, minutes=post['reading_minutes']))}</span></div><h3 class="post-title"><a href="{href}">{e(post['title'])}</a></h3><p class="post-excerpt">{e(post['summary'])}</p>{tags(post['tags'])}<a class="read-link" href="{href}">{ui['read']} <span aria-hidden="true">↗</span></a></div></article>'''
     topics = ''.join(f'<span>{e(topic)}</span>' for topic in ui['topics'])
     cards = ''.join(f'<div><span class="eyebrow">{card["label"]}</span><h2>{e(card["title"])}</h2><p>{e(card["text"])}</p></div>' for card in ui['cards'])
     count_label = ui['count'].format(count=len(posts))
@@ -265,7 +269,7 @@ def main():
             build_article(meta, source, refs, lang)
             posts[lang].append(meta)
     for lang in LANGUAGES:
-        posts[lang].sort(key=lambda post: post['date'], reverse=True)
+        posts[lang].sort(key=lambda post: (post['date'], post['slug']), reverse=True)
         build_home(posts[lang], lang)
         build_about(lang)
         build_feed(posts[lang], lang)

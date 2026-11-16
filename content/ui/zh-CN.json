@@ -29,7 +29,7 @@
     ],
     "section": "研究与思考",
     "count": "{count:02d} 篇文章",
-    "preview": "研究观察 · {minutes} 分钟",
+    "preview": "{category} · {minutes} 分钟",
     "read": "阅读全文",
     "focus": "研究关注",
     "cards": [
@@ -51,7 +51,7 @@
     ]
   },
   "article": {
-    "eyebrow": "INSIGHTS / 研究观察",
+    "eyebrow": "INSIGHTS / {category}",
     "minutes": "约 {minutes} 分钟阅读",
     "references": "{count} 项参考资料",
     "toc": "本文目录",
@@ -65,7 +65,8 @@
     "json": "引用 JSON",
     "print": "打印 / 保存 PDF",
     "correction": "提出更正 ↗",
-    "authors_separator": "、"
+    "authors_separator": "、",
+    "category": "研究观察"
   },
   "about": {
     "eyebrow": "ABOUT / 关于",

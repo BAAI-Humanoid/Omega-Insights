@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="740" viewBox="0 0 1050 740" role="img" aria-labelledby="title desc">
+<title id="title">SEET: two readouts from a shared visual backbone</title><desc id="desc">The in-progress SEET design conditions a FLUX.2 Klein 4B backbone on multiview RGB, current state and the previous action. With LoRA and tactile supervision, contact-map latents support a generative contact-marker image, while finger-query features feed a numeric head for contact probability and force. The numeric branch does not depend on generating the marker image.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#526b60"/></marker><style>text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#183c31}.line{fill:none;stroke:#526b60;stroke-width:2;marker-end:url(#arrow)}.dash{stroke-dasharray:7 5}.small{font-size:18px;fill:#526b60}.body{font-size:21px}.heading{font-size:25px;font-weight:600}</style></defs>
+<rect width="1050" height="740" fill="#fafbf7"/>
+<text x="36" y="44" font-size="15" style="fill:#155c4e" font-weight="600">SEET / VISUAL TACTILE ESTIMATION</text>
+<text x="36" y="85" font-size="29" font-weight="600">One shared backbone, two distinct readouts</text>
+<text x="36" y="121" font-size="20" style="fill:#b95632" font-weight="600">Architecture under study · estimating current contact</text>
+<rect x="36" y="204" width="228" height="292" rx="8" fill="#fff" stroke="#c6d2c7"/>
+<text x="56" y="245" font-size="24" font-weight="600">Inputs</text>
+<text x="56" y="291" font-size="18">Multiview RGB</text>
+<text x="56" y="329" font-size="18">Current proprioception</text>
+<text x="56" y="367" font-size="18">Previous action</text>
+<path d="M264 350 H303" class="line"/>
+<rect x="307" y="204" width="295" height="292" rx="8" fill="#155c4e" stroke="#155c4e"/>
+<text x="328" y="245" font-size="25" style="fill:#fff" font-weight="600">FLUX.2 Klein 4B</text>
+<text x="328" y="280" font-size="21" style="fill:#e4eee5">Shared visual backbone</text>
+<path d="M328 303 H580" stroke="#75a396"/>
+<text x="328" y="337" font-size="20" style="fill:#fff">Visual tokens</text>
+<text x="328" y="369" font-size="20" style="fill:#fff">Contact-map latents</text>
+<text x="328" y="401" font-size="20" style="fill:#fff">Finger queries</text>
+<text x="328" y="459" font-size="18" style="fill:#e4eee5">LoRA + tactile supervision</text>
+<path d="M602 350 H632 V267 H663" class="line"/>
+<path d="M632 350 V469 H663" class="line"/>
+<rect x="667" y="171" width="347" height="191" rx="8" fill="#eef2ec" stroke="#c6d2c7"/>
+<text x="688" y="207" font-size="15" style="fill:#155c4e" font-weight="600">A / GENERATIVE READOUT</text>
+<text x="688" y="247" font-size="20">Contact-map latents</text>
+<text x="688" y="281" font-size="20">→ generative image readout</text>
+<text x="688" y="315" font-size="20">→ contact-marker image</text>
+<rect x="667" y="389" width="347" height="211" rx="8" fill="#f5eee4" stroke="#d8c5ae"/>
+<text x="688" y="425" font-size="15" style="fill:#b95632" font-weight="600">B / NUMERIC READOUT</text>
+<text x="688" y="465" font-size="20">Finger-query features</text>
+<text x="688" y="499" font-size="20">→ numeric head</text>
+<text x="688" y="533" font-size="20">→ contact probability + force</text>
+<text x="688" y="576" font-size="18" style="fill:#526b60">Single forward pass</text>
+<rect x="36" y="632" width="978" height="73" rx="8" fill="#eef2ec" stroke="#c6d2c7"/>
+<text x="58" y="663" font-size="20" font-weight="600">The numeric branch reads features directly; it does not wait for a generated image.</text>
+<text x="58" y="689" font-size="17" style="fill:#526b60">A conceptual design diagram; it does not report inference speed or generalization results.</text>
+</svg>

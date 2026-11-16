@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="690" viewBox="0 0 1050 690" role="img" aria-labelledby="title desc">
+<title id="title">Predict. Feel. Act. — a research framework</title><desc id="desc">EVA studies action-conditioned latent prediction and action refinement. SEET studies contact estimation from visual and interaction context with tactile supervision. DECO uses real tactile feedback to adapt bimanual policies. Dashed links indicate a proposed research relationship, not an already integrated system.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#526b60"/></marker><style>text{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;fill:#183c31}.line{fill:none;stroke:#526b60;stroke-width:2;marker-end:url(#arrow)}.dash{stroke-dasharray:7 5}.small{font-size:18px;fill:#526b60}.body{font-size:21px}.heading{font-size:25px;font-weight:600}</style></defs>
+<rect width="1050" height="690" fill="#fafbf7"/>
+<text x="36" y="44" font-size="15" style="fill:#155c4e" font-weight="600">PREDICT · FEEL · ACT</text>
+<text x="36" y="85" font-size="30" font-weight="600">Learning to sustain physical interaction</text>
+<text x="36" y="121" font-size="20" style="fill:#b95632" font-weight="600">Research framework · joint integration in progress</text>
+<rect x="36" y="161" width="314" height="309" rx="8" fill="#eef2ec" stroke="#c6d2c7"/>
+<text x="56" y="194" font-size="15" style="fill:#155c4e" font-weight="600">01 / PREDICT</text>
+<text x="56" y="235" font-size="29" font-weight="600">ω-EVA</text>
+<text x="56" y="281" font-size="18">Observation + proposed action</text>
+<text x="56" y="316" font-size="18">→ latent consequences</text>
+<text x="56" y="351" font-size="18">→ refined action</text>
+<path d="M56 373 H330" stroke="#d4ddd1"/>
+<text x="56" y="408" font-size="18" style="fill:#526b60">Use predicted consequences</text>
+<text x="56" y="436" font-size="18" style="fill:#526b60">before executing an action.</text>
+<path d="M193 470 V519" class="line dash" marker-start="url(#arrow)"/>
+<rect x="368" y="161" width="314" height="309" rx="8" fill="#fff" stroke="#c6d2c7"/>
+<text x="388" y="194" font-size="15" style="fill:#155c4e" font-weight="600">02 / FEEL</text>
+<text x="388" y="235" font-size="29" font-weight="600">ω-SEET</text>
+<text x="388" y="281" font-size="18">Vision + interaction context</text>
+<text x="388" y="316" font-size="18">→ contact representations</text>
+<text x="388" y="351" font-size="18">Tactile supervision</text>
+<path d="M388 373 H662" stroke="#d4ddd1"/>
+<text x="388" y="408" font-size="18" style="fill:#526b60">Contact estimation</text>
+<text x="388" y="436" font-size="18" style="fill:#526b60">Research in progress</text>
+<path d="M525 470 V519" class="line dash" marker-start="url(#arrow)"/>
+<rect x="700" y="161" width="314" height="309" rx="8" fill="#fff" stroke="#c6d2c7"/>
+<text x="720" y="194" font-size="15" style="fill:#155c4e" font-weight="600">03 / FEEL → ACT</text>
+<text x="720" y="235" font-size="29" font-weight="600">DECO</text>
+<text x="720" y="281" font-size="18">Vision + real tactile feedback</text>
+<text x="720" y="316" font-size="18">→ lightweight adaptation</text>
+<text x="720" y="351" font-size="18">→ bimanual action policy</text>
+<path d="M720 373 H994" stroke="#d4ddd1"/>
+<text x="720" y="408" font-size="18" style="fill:#526b60">Use measured contact</text>
+<text x="720" y="436" font-size="18" style="fill:#526b60">to inform action generation.</text>
+<path d="M857 470 V519" class="line dash" marker-start="url(#arrow)"/>
+<rect x="36" y="523" width="978" height="93" rx="8" fill="#f5eee4" stroke="#d8c5ae"/>
+<text x="60" y="560" font-size="23" font-weight="600">Physical interaction · observations, contact, actions and outcomes</text>
+<text x="60" y="593" font-size="19" style="fill:#526b60">Experience informs the next prediction, estimate and action.</text>
+<text x="36" y="651" font-size="18" style="fill:#526b60">Dashed links show intended research connections; they do not assert joint deployment.</text>
+</svg>

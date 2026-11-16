@@ -1,0 +1,25 @@
+{
+  "slug": "predict-feel-act-nanjing-forum",
+  "title": "Predict. Feel. Act.: From Learning Actions to Learning Physical Interaction",
+  "subtitle": "Perspectives from the Nanjing forum: the research behind Omega-EVA, DECO, and SEET",
+  "summary": "How can robots anticipate the consequences of their actions, understand physical contact, and keep a task moving as conditions change? Drawing on latent consequence feedback in Omega-EVA, tactile adaptation in DECO, and our ongoing SEET research, we examine physical interaction, long-horizon execution, and the data needed to improve them.",
+  "date": "2026-11-16",
+  "updated": "2026-11-16",
+  "category": "Talk & Research Perspectives",
+  "authors": [
+    {
+      "id": "zhenguo-sun",
+      "name": "Zhenguo Sun",
+      "type": "Person",
+      "bibtex": "Sun, Zhenguo"
+    }
+  ],
+  "tags": [
+    "Talk & Research Perspectives",
+    "World Models",
+    "Tactile Learning",
+    "Physical Interaction",
+    "Data Feedback Loops"
+  ],
+  "citation_key": "sun2026predictfeelact"
+}

@@ -6,6 +6,7 @@ BAAI-Humanoid's technical blog on embodied intelligence, whole-body mobile manip
 - Chinese edition: <https://baai-humanoid.github.io/Omega-Insights/>
 - English edition: <https://baai-humanoid.github.io/Omega-Insights/en/>
 - First essay: [As General-Purpose Models Get Stronger, What Should Embodied AI Teams Build?](https://baai-humanoid.github.io/Omega-Insights/en/insights/embodied-intelligence-physical-loop/), by **Zhenguo Sun**.
+- Forum talk: [Predict. Feel. Act.: From Learning Actions to Learning Physical Interaction](https://baai-humanoid.github.io/Omega-Insights/en/insights/predict-feel-act-nanjing-forum/), adapted from **Zhenguo Sun's November 15, 2026 Nanjing forum presentation**.
 
 ## GitHub Pages setup
 
@@ -46,6 +47,8 @@ Add matching `.md` and `.json` files under `content/posts/`, with a reference li
 
 Each article has a complete Chinese and English edition. Chinese files live in `content/posts/`; English files live in `content/posts/en/`. Both editions use the same filename and `slug`, and share a reference JSON file with matching footnote IDs and source URLs. Author display names may be localized, while stable author IDs identify the same person across editions.
 
+An optional localized `category` in each edition's metadata distinguishes research perspectives from talk reports. It appears on the home page and article header. Articles are sorted by publication date, then by slug, in descending order. A presentation's event date belongs in its introduction; `date` records when the article was published.
+
 The language selector switches to the corresponding version of the current page. Home pages, About pages, articles, RSS feeds, and Markdown downloads are generated for each language. Language switching works without browser JavaScript.
 
 ```sh
@@ -76,6 +79,8 @@ dist/                    Generated output; not committed to Git
 ## Citations and editorial scope
 
 The first essay, by Zhenguo Sun, is based on an **internal team discussion on embodied AI held on September 24, 2026**. It was published on November 16, 2026, when its reference links were also checked. It examines the selected model versions and is not a list of the latest releases. Reported results retain their task and evaluation context; proposed research priorities do not imply that the team has already completed those experiments.
+
+The Nanjing forum article is a **talk report and research perspective**, adapted from the November 15, 2026 presentation. It distinguishes published EVA and DECO results from ongoing SEET work and the proposed integration of prediction, contact feedback, and action. Its diagrams explain the research framework; they do not claim a completed joint deployment.
 
 Each article ends with a **Cite this article** section and a separate BibTeX download for citing the blog post itself. This is distinct from the downloadable **reference bibliography**, which contains the external sources cited by the article. The blog's citation identifies its author, title, publication date, and stable URL.
 

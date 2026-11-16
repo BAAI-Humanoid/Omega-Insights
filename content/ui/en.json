@@ -29,7 +29,7 @@
     ],
     "section": "Research & perspectives",
     "count": "{count:02d} article(s)",
-    "preview": "Research perspective · {minutes} min",
+    "preview": "{category} · {minutes} min read",
     "read": "Read the article",
     "focus": "Research focus",
     "cards": [
@@ -51,7 +51,7 @@
     ]
   },
   "article": {
-    "eyebrow": "INSIGHTS / RESEARCH PERSPECTIVES",
+    "eyebrow": "INSIGHTS / {category}",
     "minutes": "{minutes} min read",
     "references": "{count} references",
     "toc": "On this page",
@@ -65,7 +65,8 @@
     "json": "References JSON",
     "print": "Print / save PDF",
     "correction": "Suggest a correction ↗",
-    "authors_separator": ", "
+    "authors_separator": ", ",
+    "category": "Research perspective"
   },
   "about": {
     "eyebrow": "ABOUT / OMEGA INSIGHTS",
